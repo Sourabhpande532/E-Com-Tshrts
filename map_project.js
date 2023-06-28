@@ -42,8 +42,16 @@ SCROLL ON till Bottom ...above link
 -use funtional Programming 
 -In Order to Clear More Take Refference of LOCATION & visit file 
 
-
-
-
+-----------------NEW--------------------
+@SECTION: USER MODEL & SIGNUP 
+@TITLE: CREATING A USER MODEL & VALIDATOR
+@ABOUT:user schema 
+@LOCATION: 🗃️models/user.js
+@OVERVIEW:
+-🎯Why🤔?? unique:true - mongoose will automatically look in backend weather this email is exits or not in my DB Additional feature that mongoose provide us;
+-🎯password: never ever save password confirm field in database no matter which language;
+-🎯why🤔?? select:false: it's because it saves or time instead one user.password = undefined;
+-🎯photo : - inside one we hold Id itself which will get from cloudinary 2nd one is secure URL 
+-🎯default: Date.now() don't mention like that in createdAt because we want to run it when this field is getting executed; instead use default: Date.now,
 
 */
