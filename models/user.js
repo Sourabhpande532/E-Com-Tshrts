@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -41,8 +42,22 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("User", userSchema);
+//ENCRYPT PASSWORD BEFOUR SAVE  - H.W (On:Testing)
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    return next();
+  }
+  this.password = await bcrypt.hash(this.password, 12);
+});
 
+//VALIDATE THE PASSWORD WITH PASSED ON USER PASSWORD - H.W (On:Testing)
+userSchema.methods.isValidatedPassword = async function (userSendPassword) {
+  return await bcrypt.compare(userSendPassword, this.password);
+};
+
+
+
+module.exports = mongoose.model("User", userSchema);
 
 /* 
 Ref: @TITLE: CREATING A USER MODEL & VALIDATOR

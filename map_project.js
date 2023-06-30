@@ -54,4 +54,22 @@ SCROLL ON till Bottom ...above link
 -🎯photo : - inside one we hold Id itself which will get from cloudinary 2nd one is secure URL 
 -🎯default: Date.now() don't mention like that in createdAt because we want to run it when this field is getting executed; instead use default: Date.now,
 
+-----------------NEW--------------------
+@SECTION: USER MODEL & SIGNUP 
+@TITLE: PASSWORD ENCRYPTION AND MONGOOSE PROTOTYPES & VALIDATING THE PASSWORD 
+@ABOUT:user schema 
+@LOCATION: 🗃️models/user.js
+@OVERVIEW: 
+
+REF: ✈️🔗https://stackoverflow.com/questions/50581825/ismodified-and-pre-save-mongoose-nodejs
+REF: ✈️🔗https://mongoosejs.com/docs/api/document.html#Document.prototype.isInit()
+
+@Note: Encrypt password befour Saving
+🥊🥊ENCRYPT PASSWORD BEFOUR SAVE  - H.W (On:Testing)
+
+@ABOUT: VALIDATING THE PASSWORD 
+@OVERVIEW: 
+IN this we'r discussing about methods for VALIDATING the password that were pass by him;
+-It just return true & false value weather you login or not !!
+
 */
