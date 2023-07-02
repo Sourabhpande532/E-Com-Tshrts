@@ -72,4 +72,22 @@ REF: ✈️🔗https://mongoosejs.com/docs/api/document.html#Document.prototype.
 IN this we'r discussing about methods for VALIDATING the password that were pass by him;
 -It just return true & false value weather you login or not !!
 
+-----------------NEW--------------------
+@SECTION: USER MODEL & SIGNUP 
+@TITLE: CREATING JWT TOKEN 
+@LOCATION: 🗃️models/user.js
+@OVERVIEW: 
+-🎯first Need to go in .env file 
+-🎯Need to mention JWT_SECRET & JWT_EXPIRY
+-🎯NEED to require 'jsonwebtoken' with Id which easy querry to DB 
+-🎯then define methode "getJwtToken" with optionaly Asynchronously but don't use 
+-🎯create function into it 
+-🎯generate token via 'sign'
+-🎯pass id REMEMBER {id:this._id} first id(we'created) & : + this._id(generated via mongoose & we'r accessing);
+-🎯By the term it mean: whenever save data in mongodb + automatically generate (._id(field- This is not JSON it's BSON Field)) + Access via only only _id underscore ID O.w NOT 
+-🎯OPTIONAlY YOU Can PASS LIKE THAT ALSO : email:this.email 
+---------
+-🎯Then provide secrete Come from .env 
+-🎯Then pass expiry time 
+
 */
