@@ -18,16 +18,23 @@ app.use(morgan("tiny"));
 
 //COOKIES AND FILE-UPLOAD MIDDLEWARE
 app.use(cookieParser());
-app.use(fileUpload());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+  })
+);
 
 //REGULAR MIDDLEWARE
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }));
 
 // BRINGS ROUTES
 const home = require("./routes/home");
+const user = require("./routes/user");
 
 // USING MIDDLEWARE
 app.use("/api/v1", home);
+app.use("/api/v1", user);
 
 module.exports = app;

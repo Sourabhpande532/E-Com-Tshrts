@@ -1,4 +1,6 @@
 /*
+@NOTE: Create first "CustomError"(🗃️utils), "bigPromise"(🗃️middlewares) for Error Handling BEFOUR Start PROJECT;
+
 @ABOUT_ROUTES:
 Ref: ✈️🔗https://expressjs.com/en/5x/api.html#router
 
@@ -73,6 +75,7 @@ IN this we'r discussing about methods for VALIDATING the password that were pass
 -It just return true & false value weather you login or not !!
 
 -----------------NEW--------------------
+
 @SECTION: USER MODEL & SIGNUP 
 @TITLE: CREATING JWT TOKEN 
 @LOCATION: 🗃️models/user.js
@@ -89,5 +92,73 @@ IN this we'r discussing about methods for VALIDATING the password that were pass
 ---------
 -🎯Then provide secrete Come from .env 
 -🎯Then pass expiry time 
+
+
+🥊🥊-----------------------@NEW@----------------------------🥊🥊
+
+
+@SECTION: USER MODEL & SIGNUP 
+@TITLE: FORGOT PASSWORT & CRYPTO HASHING  
+@ABOUT:user schema 
+@LOCATION: 🗃️models/user.js
+@OVERVIEW: 
+Ref: 🔗✈️https://www.npmjs.com/package/nanoid
+Ref: 🔗✈️https://www.npmjs.com/package/randomstring
+Ref: 🔗✈️https://www.npmjs.com/package/uuid
+
+!Ref: 🔗✈️https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+!Ref: 🔗✈️https://en.wikipedia.org/wiki/Cryptographic_hash_function
+
+-🎯ForgotPasswordToken It just Normal String Nothing more than that don't consider as a jsonwebtoken 
+-🎯Need to Stored this String Into DATABASE itself & send to frontend somebuddy else 
+-🎯use crypto package take Refference of 2nd last link 
+-🎯we can perform simply No need to woryy on 'createHash,digest,update' & all stuff just go & simply stored like this.forgotPasswordExpiry = forgotToken it's OK !! No Problem 
+-🎯But,OPTIONAlY Moving one step ahead BEFOUR one Read about last wikipedia Link 
+-🎯About ref link 
+   it Generate STRING which "fix in size" + find message only via "Bruit Force" which take long years & info not that much valuable + So in order to Resolve "Cryptographic_hash_function" Need of it; 
+   
+
+-@PROCESS 
+ ^ Generate a long and random String 
+   [nanoid,randomstring,uuid]
+ ^ But😗, we'r using CRYPTO not any one of them it just for knowledge 
+ ^ we'don't have to install it come with node itself;
+ ^ take Refference of last two below link study perpose & with the help of that createHash update & digest 
+
+
+----------------------------SECTION 
+
+@TITLE: USER ROUTES AND POSTMAN 
+@LOCATION: 🗃️MODEL/user/
+
+🔺-"/forgotPassword "- request an email How to reset Password + 
+🔺-"/password/reset/:token" - The whole idea behind this Grabbed this UNIC string(via :token) just created at earlier Via CRYPTO 
+& want to Grabbed this "URL" itself if "STRING" Matches with my DATABASE STRING So everything reset in backend itself; this is how it work;
+Note: ALSO Allow PASSWORD Body itself 
+🔺- Need All user info "/"
+🔺- "/password/update" && "/user/update"
+
+-----------------------------SECTION
+
+@LOCATION: 🗃️CONTROLLER/user.js
+@TITLE:SIGNUP A USER & COOKIE 
+
+  /*SEND Cookie Value 
+  -🎯Optionally You can send msg Hey, user is created Go & Login
+  -🎯But,here once Registerd then want send HIM cookie token & GRABBED It That's convection 
+  -🎯Now able to access Methods Now that we done on Model/user "getJwtToken" it'll give me token 
+  -🎯want set some options & throw it on "Cookie"
+  -🎯Why Json for mobile perspective that's why you see easily token on web But.
+
+  Cookie token we need use frequently So create 🗃️utils/cookieToken/
+  
+
+
+
+
+
+
+
+
 
 */

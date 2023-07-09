@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -18,7 +19,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Please provide an password"],
-    minlength: [6, "password should be atleast 8 char"],
+    minlength: [6, "password should be atleast 6 char"],
     select: false,
   },
   role: {
@@ -58,9 +59,23 @@ userSchema.methods.isValidatedPassword = async function (userSendPassword) {
 
 //CREATE AND RETURN JWT TOKEN
 userSchema.methods.getJwtToken = function () {
-  jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRY,
   });
+};
+
+// GENERATE FORGOT PASSWORD TOKEN (STRING)
+userSchema.methods.getForgotPasswordToken = function () {
+  // GENERATE A LONG AND RANDOM STRING
+  const forgotToken = crypto.randomBytes(20).toString("hex");
+  // GETTING A HASH - MAKE SURE TO GET HASH ON backend
+  this.forgotPasswordToken = crypto
+    .createHash("sha256")
+    .update(forgotToken)
+    .digest("hex");
+  // TIME OF TOKEN
+  this.forgotPasswordExpiry = Date.now() + 20 * 60 * 1000;
+  return forgotToken;
 };
 
 
