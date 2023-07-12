@@ -6,11 +6,12 @@ const cloudinary = require("cloudinary");
 // CONNECT TO DATABASE
 connectWithDb();
 
+
 // CLOUDINARY CONFIG
 cloudinary.config({
-  clound_name: process.env.CLOUDINARY_NAME,
+  cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_key: process.env.CLOUDINARY_API_SECRET,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 app.listen(process.env.PORT, () => {

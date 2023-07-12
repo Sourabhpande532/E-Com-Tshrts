@@ -1,4 +1,6 @@
 /*
+@IMP:🔗✈️http://localhost:4000/api-docs/
+     🔗✈️http://localhost:4000/signuptest
 @NOTE: Create first "CustomError"(🗃️utils), "bigPromise"(🗃️middlewares) for Error Handling BEFOUR Start PROJECT;
 
 @ABOUT_ROUTES:
@@ -151,14 +153,19 @@ Note: ALSO Allow PASSWORD Body itself
   -🎯Why Json for mobile perspective that's why you see easily token on web But.
 
   Cookie token we need use frequently So create 🗃️utils/cookieToken/
-  
+
+  -----------------------------SECTION
+  IMAGE UPLOAD THEORY PENDING 🥱🥱🥱
+  @VISITED FILE: index.js,.env, app.js CONTROLLER/user.js 
+  -----------------------------Then'll Come 
 
 
+  ----------------------------------SECTION
+  @LOCATION: 🗃️CONTROLLER/user.js
+  @TITLE:-> 
+  @ABOUT:->
 
-
-
-
-
+  @OVERVIEW@
 
 
 */

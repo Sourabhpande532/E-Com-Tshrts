@@ -6,4 +6,5 @@ const router = express.Router();
 router.route("/").get(home)
 router.route("/d").get(Dummy)
 
+
 module.exports = router;
