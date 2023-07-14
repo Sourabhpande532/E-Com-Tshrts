@@ -161,11 +161,13 @@ Note: ALSO Allow PASSWORD Body itself
 
 
   ----------------------------------SECTION
-  @LOCATION: 🗃️CONTROLLER/user.js
-  @TITLE:-> 
-  @ABOUT:->
-
+  @LOCATION: 🗃️utils/emailHelper
+  @TITLE:-> SENDING EMAIL 
+  @ABOUT:-> nodemailer & mailtrap
   @OVERVIEW@
+  🔗✈️https://nodemailer.com/about/
+  🔗✈️https://mailtrap.io/home
+  🔗✈️https://courses.learncodeonline.in/learn/home/Pro-Backend-Developer-course/section/239125/lesson/1409394?
 
 
 */
